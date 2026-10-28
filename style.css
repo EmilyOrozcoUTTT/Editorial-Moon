@@ -218,3 +218,36 @@ a {
   color: var(--azulclaro); 
   margin-right: .4rem; 
 }
+/* EVENTOS */
+.tarjeta-evento { 
+  background: #ffffff; 
+  border-left: 6px solid var(--rosa); 
+  padding: 1.5rem; 
+  border-radius: 6px; 
+  box-shadow: 0 4px 14px #2f33471a; 
+}
+.fecha-evento { 
+  background: var(--azulmarino); 
+  color: var(--alba); 
+  padding: .6rem 1rem; 
+  border-radius: 6px; 
+  min-width: 110px; 
+  height: fit-content; 
+  font-family: 'Cinzel', serif; }
+
+/* PIE DE PÁGINA  */
+.pie-pagina { 
+  background: var(--texto); 
+  color: var(--beige); 
+  padding: 3rem 0 1.5rem; 
+}
+.pie-pagina a { 
+  color: var(--beige); 
+  text-decoration: none;
+ }
+.pie-pagina a:hover { 
+  color: var(--rosa);
+ }
+.nombre-pie { 
+  font-size: 1.6rem; 
+}
