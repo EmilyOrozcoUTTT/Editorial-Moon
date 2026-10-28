@@ -77,3 +77,61 @@ a {
   background: var(--azulmarino); 
   color: var(--beige);
 }
+/*PORTADA DE INICIO */
+.portada-principal {
+  background: var(--azulmarino); 
+  color: var(--beige); 
+  padding: 5rem 0; 
+}
+.portada-principal h1 { 
+  color: var(--beige); 
+}
+.estetica {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;     
+}
+.estetica img {
+  width: 100%;    
+  aspect-ratio: 1;      
+  object-fit: cover;
+  border-radius: 50%;  
+  box-shadow: 0 0 80px #cd9fa059; 
+}
+/* BOTONES*/
+.boton-oscuro { 
+  background: var(--azulmarino); 
+  color: var(--beige); 
+  border: 2px solid var(--azulmarino); 
+}
+.boton-oscuro:hover, .boton-oscuro.active { 
+  background: var(--texto); 
+  border-color: var(--texto); 
+  color: #ffffff; 
+}
+.boton-borde { 
+  border: 2px solid var(--azulmarino); 
+  color: var(--azulmarino); 
+}   
+.boton-borde:hover { 
+  background: var(--azulmarino); 
+  color: var(--beige); 
+}
+.boton-claro { 
+  background: var(--beige); 
+  color: var(--texto); 
+  border: 2px solid var(--beige); 
+}
+.boton-claro:hover { 
+  background: var(--durazno); 
+  border-color: var(--durazno); 
+  color: var(--texto); 
+}
+.boton-claro-borde { 
+  border: 2px solid var(--beige); 
+  color: var(--beige); 
+}
+.boton-claro-borde:hover { 
+  background: var(--beige); 
+  color: var(--texto); 
+}
