@@ -251,3 +251,23 @@ a {
 .nombre-pie { 
   font-size: 1.6rem; 
 }
+/* DISEÑO RESPONSIVO */
+@media (max-width: 991.98px) {
+  .portada-principal { padding: 3.5rem 0; }   
+  .carrito-lateral { position: static; }     
+}
+@media (max-width: 767.98px) {
+  body { font-size: 1.1rem; }                 
+  .logo-menu { height: 42px; }              
+  .titulo-pagina { padding: 2.5rem 0; }       
+  .frase-cursiva { font-size: 1.8rem; }
+  .caja-promo { padding: 1.5rem; }
+  .estetica { max-width: 300px; }            
+  .fecha-evento { width: 100%; }             
+}
+@media (max-width: 575.98px) {
+  .logo-menu { height: 38px; }
+  .portada-principal .btn { width: 100%; } 
+  .tarjeta-evento { padding: 1rem; }
+  .caja-formulario, .carrito-lateral { padding: 1.25rem; }
+}
