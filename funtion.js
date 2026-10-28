@@ -49,3 +49,66 @@ if (paginaActual === "catalogo") {
     });
   }
 }
+/* PÁGINA TIENDA */
+if (paginaActual === "tienda") {
+  let comprados = [];
+  function mostrarLista() {
+    let html = "";
+    if (comprados.length === 0) {
+      html = "<p>Tu carrito está vacío. Presiona Comprar en un libro.</p>";
+    }
+    for (let i = 0; i < comprados.length; i++) {
+      html = html + '<div class="fila-carrito"><span>' + comprados[i] + '</span></div>';
+    }
+    document.querySelector("#articulosCarrito").innerHTML = html;
+  }
+  let htmlTienda = "";
+  for (let i = 0; i < BOOKS.length; i++) {
+    htmlTienda = htmlTienda + crearTarjeta(BOOKS[i], true);
+  }
+  document.querySelector("#rejillaTienda").innerHTML = htmlTienda;
+  mostrarLista();
+  let botonesComprar = document.querySelectorAll(".comprar");
+  for (let i = 0; i < botonesComprar.length; i++) {
+    botonesComprar[i].addEventListener("click", function () {
+      comprados.push(BOOKS[i].title);
+      mostrarLista();
+
+      Swal.fire({
+        icon: "success",
+        title: "¡Gracias por tu compra!",
+        text: "Compraste: " + BOOKS[i].title,
+        confirmButtonColor: "#525871"
+      });
+    });
+  }
+  // Botón "Vaciar carrito"
+  document.querySelector("#vaciarCarrito").addEventListener("click", function () {
+    comprados = []; 
+    mostrarLista();
+  });
+}
+/* PÁGINA EVENTOS */
+if (paginaActual === "eventos") {
+  document.querySelector("#botonConcurso").addEventListener("click", function () {
+
+    // Esta ventana trae un campo para escribir el correo
+    Swal.fire({
+      title: "Concurso de poesía: Día de Muertos",
+      input: "email",
+      inputLabel: "Tu correo electrónico",
+      confirmButtonText: "Inscribirme",
+      confirmButtonColor: "#525871",
+      showCancelButton: true
+    }).then(function (respuesta) {
+      if (respuesta.isConfirmed) {
+        Swal.fire({
+          icon: "success",
+          title: "¡Participación registrada!",
+          text: "Te escribiremos a " + respuesta.value,
+          confirmButtonColor: "#525871"
+        });
+      }
+    });
+  });
+}
