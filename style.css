@@ -48,3 +48,32 @@ a {
 :focus-visible { 
   outline: 3px solid var(--rosa); 
   outline-offset: 2px; 
+}
+/*MENÚ DE NAVEGACIÓN  */
+.menu-moon { 
+  background: var(--fondo); 
+  border-bottom: 3px solid var(--rosa); 
+  padding: .5rem 0; 
+}
+.logo-menu { 
+  height: 52px; 
+  width: auto; 
+} 
+.menu-moon .nav-link { 
+  color: var(--texto); 
+  font-family: 'Cinzel', serif; 
+  font-size: .95rem; 
+  border-bottom: 2px solid transparent; 
+}
+.menu-moon .nav-link:hover, .menu-moon .nav-link.active { 
+  color: var(--azulmarino); 
+  border-bottom-color: var(--rosa); 
+}
+.menu-moon .navbar-toggler { 
+  color: var(--azulmarino); 
+  border-color: var(--azulclaro); 
+}
+.badge#contadorCarrito { 
+  background: var(--azulmarino); 
+  color: var(--beige);
+}
