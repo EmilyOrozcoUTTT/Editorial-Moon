@@ -112,3 +112,71 @@ if (paginaActual === "eventos") {
     });
   });
 }
+/* FORMULARIO)  */
+if (paginaActual === "pub") {
+  let formulario = document.querySelector("#formularioManuscrito");
+  let mensaje = document.querySelector("#mensajeFormulario");
+  let sinopsis = document.querySelector("#sinopsis");
+  let obligatorios = formulario.querySelectorAll("[required]");
+  function revisarCampo(campo) {
+    let esValido = campo.checkValidity();
+    if (esValido === true) {
+      campo.classList.add("is-valid");  
+      campo.classList.remove("is-invalid");
+    } else {
+      campo.classList.add("is-invalid"); 
+      campo.classList.remove("is-valid");
+    }
+    return esValido;
+  }
+  sinopsis.addEventListener("input", function () {
+    document.querySelector("#contador").textContent = sinopsis.value.length + " / 600";
+  });
+  for (let i = 0; i < obligatorios.length; i++) {
+    obligatorios[i].addEventListener("blur", function () {
+      revisarCampo(obligatorios[i]);
+    });
+  }
+  function limpiarColores() {
+    for (let i = 0; i < obligatorios.length; i++) {
+      obligatorios[i].classList.remove("is-valid", "is-invalid");
+    }
+  }
+  formulario.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+    let todoBien = true;
+    for (let i = 0; i < obligatorios.length; i++) {
+      if (revisarCampo(obligatorios[i]) === false) {
+        todoBien = false; 
+      }
+    }
+    if (todoBien === false) {
+      mensaje.className = "alert alert-danger";
+      mensaje.textContent = "Revisa los campos marcados en rojo antes de enviar.";
+      return; 
+    }
+    let datos = {
+      nombre: document.querySelector("#nombre").value,
+      titulo: document.querySelector("#titulo").value,
+      genero: document.querySelector("#genero").value
+    };
+    localStorage.setItem("moonManuscript", JSON.stringify(datos));
+    mensaje.className = "alert alert-success";
+    mensaje.textContent = "¡Recibimos «" + datos.titulo + "»! Te escribiremos pronto.";
+
+    Swal.fire({
+      icon: "success",
+      title: "Manuscrito enviado",
+      text: "Gracias por confiar en Moon.",
+      confirmButtonColor: "#525871"
+    });
+    formulario.reset(); 
+    limpiarColores();
+    document.querySelector("#contador").textContent = "0 / 600";
+  });
+  formulario.addEventListener("reset", function () {
+    mensaje.className = "";
+    mensaje.textContent = "";
+    limpiarColores();
+  });
+}
